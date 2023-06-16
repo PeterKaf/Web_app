@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Complete homework",
+    "priority": "High",
+    "due_date": "2023-06-20"
+  },
+  {
+    "task": "Buy groceries",
+    "priority": "Medium",
+    "due_date": "2023-06-18"
+  },
+  {
+    "task": "Go to the gym",
+    "priority": "Low",
+    "due_date": "2023-06-17"
+  }
+]

@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import streamlit as st
+import functions as fun
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    data = fun.read_json()
+    st.title("Todo App")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        entry_box = st.text_input(label="**Enter the activity you want to add:**",
+                                  placeholder="Enter the activity you want to add:",
+                                  label_visibility="hidden")
+    with col2:
+        st.markdown("**Select the priority:**")
+        for entry in data:
+            st.checkbox(entry["priority"])
+    with col3:
+        st.markdown("**Pick a deadline:**")
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
