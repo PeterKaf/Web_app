@@ -16,14 +16,19 @@ def main():
             st.warning("Please select only one option")
     with col2:
         st.markdown("**Pick a deadline:**")
-        selected_date = st.date_input("Select a date")  # YYYY-MM-DD
+        selected_date = st.date_input("Select a date", key="deadline")  # YYYY-MM-DD
     with col3:
         st.markdown("**Submit a Todo:**")
         entry_box = st.text_input(label="**Enter the activity you want to add:**",
-                                  placeholder="Enter here...")
-    st.subheader("Currnet Todos:")
-    for todo in sorted_todos:
-        st.checkbox(todo["task"])
+                                  placeholder="Enter here...", key="todo_name")
+
+        if st.button("Submit", key="submit"):
+            fun.add_todo(priorities)
+    st.subheader("Current Todos:")
+    for i, todo in enumerate(sorted_todos):
+        st.checkbox(todo["task"], key=todo)
+
+    st.session_state
 
 
 if __name__ == '__main__':
