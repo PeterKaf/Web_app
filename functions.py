@@ -36,10 +36,11 @@ def write_json(value, filename=FILENAME):
         json.dump(existing_data, f, indent=4)
 
 
-def add_todo(priorities_dict):
+def add_todo(priorities_dict, todos):
     """
     Appends a to-do into data dictionary and json file via write_json function
     :param priorities_dict: dictionary with information on set statuses of priority checkbox
+    :param todos:
     :return: None
     """
     for priority, value in priorities_dict.items():
@@ -53,10 +54,19 @@ def add_todo(priorities_dict):
         else:
             num_priority = 2
 
-        todo = {"task": st.session_state["todo_name"], "priority": num_priority,
+        todo = {"task": st.session_state["enter_todo"], "priority": num_priority,
                 "due_date": str(st.session_state["deadline"])}
 
         write_json(todo)
         st.success("Todo added successfuly")
     except UnboundLocalError:
         st.warning("Please select a priority")
+
+
+def edit_todo():
+    pass
+
+
+def complete_todo():
+    pass
+

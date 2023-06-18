@@ -18,17 +18,37 @@ def main():
                 st.warning("Please select only one option")
         with col2:
             st.markdown("**Pick a deadline:**")
-            selected_date = st.date_input("Select a date", key="deadline")  # YYYY-MM-DD
+            selected_date = st.date_input("**Select a date**", key="deadline")  # YYYY-MM-DD
         with col3:
             st.markdown("**Submit a Todo:**")
             entry_box = st.text_input(label="**Enter the activity you want to add:**",
-                                      placeholder="Enter here...", key="todo_name")
+                                      placeholder="Enter here...", key="enter_todo")
 
             if st.form_submit_button("Submit"):
                 fun.add_todo(priorities)
-    st.subheader("Current Todos:")
-    for i, todo in enumerate(sorted_todos):
-        st.checkbox(todo["task"], key=todo)
+
+    with st.form(key="form2"):
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.subheader("Current Todos:")
+            for i, todo in enumerate(sorted_todos):
+                st.checkbox(todo["task"], key=todo)
+        with col2:
+            st.subheader("")
+            st.write("")
+            edit_box = st.text_input(label="**Replace with:**",
+                                     placeholder="Enter here...", key="edit_todo")
+            finish_button = st.form_submit_button("Complete a todo")
+            if finish_button:
+                pass
+        with col3:
+            st.subheader("")
+            st.subheader("")
+            st.subheader("")
+
+            edit_button = st.form_submit_button("Edit a todo")
+            if edit_button:
+                pass
 
     st.session_state
 
