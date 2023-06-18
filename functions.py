@@ -36,11 +36,10 @@ def write_json(value, filename=FILENAME):
         json.dump(existing_data, f, indent=4)
 
 
-def add_todo(priorities_dict, todos):
+def add_todo(priorities_dict):
     """
     Appends a to-do into data dictionary and json file via write_json function
     :param priorities_dict: dictionary with information on set statuses of priority checkbox
-    :param todos:
     :return: None
     """
     for priority, value in priorities_dict.items():

@@ -31,8 +31,11 @@ def main():
         col1, col2, col3 = st.columns(3)
         with col1:
             st.subheader("Current Todos:")
-            for i, todo in enumerate(sorted_todos):
-                st.checkbox(todo["task"], key=todo)
+            with open('todos.json', 'r') as file:
+                data = fun.read_json()
+                sorted_todos = sorted(data, key=lambda x: (x['due_date'], x['priority']))
+                for i, todo in enumerate(sorted_todos):
+                    st.checkbox(todo["task"], key=i)
         with col2:
             st.subheader("")
             st.write("")
