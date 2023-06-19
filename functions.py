@@ -40,7 +40,7 @@ def add_todo(priorities_dict):
     """
     Appends a to-do into data dictionary and json file via write_json function
     :param priorities_dict: dictionary with information on set statuses of priority checkbox
-    :return: None
+    :return: to-do list
     """
     for priority, value in priorities_dict.items():
         if value:
@@ -58,6 +58,7 @@ def add_todo(priorities_dict):
 
         write_json(todo)
         st.success("Todo added successfuly")
+        st.experimental_rerun()
     except UnboundLocalError:
         st.warning("Please select a priority")
 
@@ -66,6 +67,19 @@ def edit_todo():
     pass
 
 
-def complete_todo():
-    pass
+def complete_todo(data, checkbox_values):
+    # Get the keys of selected entries to delete
+    keys_to_delete = []
+    for key, entry in enumerate(data):
+        if checkbox_values[key]:
+            keys_to_delete.append(key)
 
+    if keys_to_delete:
+        # Delete the selected entries
+        for key in sorted(keys_to_delete, reverse=True):
+            del data[key]
+
+        # Write the updated data back to the JSON file
+        with open(FILENAME, 'w') as f:
+            json.dump(data, f, indent=4)
+        st.experimental_rerun()
