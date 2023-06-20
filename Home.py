@@ -52,9 +52,7 @@ def main():
 
             edit_button = st.form_submit_button("Edit a todo")
             if edit_button:
-                pass
-
-    st.session_state
+                fun.edit_todo(sorted_todos, checkbox_values)
 
 
 if __name__ == '__main__':

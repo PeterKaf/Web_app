@@ -1,21 +1,11 @@
 [
     {
-        "task": "1",
-        "due_date": "2023-06-30",
-        "priority": 0
-    },
-    {
         "task": "2",
         "due_date": "2023-06-30",
         "priority": 0
     },
     {
-        "task": "3",
-        "due_date": "2023-06-30",
-        "priority": 0
-    },
-    {
-        "task": "4",
+        "task": "1",
         "due_date": "2023-06-30",
         "priority": 0
     },
@@ -26,26 +16,6 @@
     },
     {
         "task": "6",
-        "due_date": "2023-06-30",
-        "priority": 0
-    },
-    {
-        "task": "7",
-        "due_date": "2023-06-30",
-        "priority": 0
-    },
-    {
-        "task": "8",
-        "due_date": "2023-06-30",
-        "priority": 0
-    },
-    {
-        "task": "9",
-        "due_date": "2023-06-30",
-        "priority": 0
-    },
-    {
-        "task": "10",
         "due_date": "2023-06-30",
         "priority": 0
     }

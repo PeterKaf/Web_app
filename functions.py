@@ -3,6 +3,7 @@ This file contains auxiliary functions
 """
 import json
 import streamlit as st
+import time
 FILENAME = "todos.json"
 
 
@@ -58,28 +59,53 @@ def add_todo(priorities_dict):
 
         write_json(todo)
         st.success("Todo added successfuly")
+        time.sleep(1)
         st.experimental_rerun()
     except UnboundLocalError:
         st.warning("Please select a priority")
 
 
-def edit_todo():
-    pass
+def edit_todo(data, checkbox_values):
+    if True in checkbox_values:
+        # Get the keys of selected entries to delete
+        keys_to_edit = []
+        for key, entry in enumerate(data):
+            if checkbox_values[key]:
+                keys_to_edit.append(key)
+
+        if keys_to_edit:
+            # Delete the selected entries
+            for key in sorted(keys_to_edit, reverse=True):
+                data[key]['task'] = st.session_state["edit_todo"]
+
+            # Write the updated data back to the JSON file
+            with open(FILENAME, 'w') as f:
+                json.dump(data, f, indent=4)
+            st.success("Todo changed")
+            time.sleep(1)
+            st.experimental_rerun()
+    else:
+        st.warning("Please select one or more todos you wish to edit")
 
 
 def complete_todo(data, checkbox_values):
-    # Get the keys of selected entries to delete
-    keys_to_delete = []
-    for key, entry in enumerate(data):
-        if checkbox_values[key]:
-            keys_to_delete.append(key)
+    if True in checkbox_values:
+        # Get the keys of selected entries to delete
+        keys_to_delete = []
+        for key, entry in enumerate(data):
+            if checkbox_values[key]:
+                keys_to_delete.append(key)
 
-    if keys_to_delete:
-        # Delete the selected entries
-        for key in sorted(keys_to_delete, reverse=True):
-            del data[key]
+        if keys_to_delete:
+            # Delete the selected entries
+            for key in sorted(keys_to_delete, reverse=True):
+                del data[key]
 
-        # Write the updated data back to the JSON file
-        with open(FILENAME, 'w') as f:
-            json.dump(data, f, indent=4)
-        st.experimental_rerun()
+            # Write the updated data back to the JSON file
+            with open(FILENAME, 'w') as f:
+                json.dump(data, f, indent=4)
+            st.success("Completed a todo/todos")
+            time.sleep(1)
+            st.experimental_rerun()
+    else:
+        st.warning("Select a one or more todos you wish to complete")
