@@ -1,5 +1,5 @@
 """
-This file contains auxiliary functions
+This file contains settings and helper functions
 """
 import json
 import streamlit as st
@@ -41,7 +41,7 @@ def add_todo(priorities_dict):
     """
     Appends a to-do into data dictionary and json file via write_json function
     :param priorities_dict: dictionary with information on set statuses of priority checkbox
-    :return: to-do list
+    :return: None
     """
     for priority, value in priorities_dict.items():
         if value:
