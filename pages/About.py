@@ -3,10 +3,16 @@ from PIL import Image
 
 
 message = """This application is designed to assist you in staying organized and on top of your work.
-With its intuitive interface, you can effortlessly manage your tasks by adding, editing, and marking them as complete.
+With its intuitive interface, you can effortlessly manage your tasks by adding, editing, and marking
+them as complete.
 
-The app prioritizes your most urgent tasks, ensuring that they are prominently displayed at the top of your list.
-In situations where multiple tasks share the same deadline, the app intelligently considers their priorities to determine the order in which they are presented."""
+It prioritizes your most urgent tasks, ensuring that they are prominently displayed atr the top of your
+list. In situations where multiple tasks share the same deadline, the app intelligently considers their
+priorities to determine the order in which they are presented.
+
+Possible improvements: preventing possibilities to enter already passed date or empty string,
+adding hourly tracker with live timer then handling of todos with past date, implementing warning system for
+todos reaching their deadline."""
 
 image = Image.open("about_image.png")
 

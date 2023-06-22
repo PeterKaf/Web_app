@@ -3,6 +3,8 @@ import functions as fun
 
 
 def main():
+
+    todo_manager = fun.TodoManager()
     data = fun.read_json()
     sorted_todos = sorted(data, key=lambda x: (x['due_date'], x['priority']))
     priorities = {"High": False, "Medium": False, "Low": False}
@@ -26,7 +28,7 @@ def main():
                 if sum(priorities.values()) > 1:
                     st.warning("Please select only one option")
                 else:
-                    fun.add_todo(priorities)
+                    todo_manager.add_todo(priorities)
 
     with st.form(key="form2"):
         col1, col2, col3 = st.columns(3)
@@ -44,7 +46,7 @@ def main():
                                      placeholder="Enter here...", key="edit_todo")
             complete_button = st.form_submit_button("Complete a todo")
             if complete_button:
-                fun.complete_todo(sorted_todos, checkbox_values)
+                todo_manager.complete_todo(sorted_todos, checkbox_values)
         with col3:
             st.subheader("")
             st.subheader("")
@@ -52,7 +54,7 @@ def main():
 
             edit_button = st.form_submit_button("Edit a todo")
             if edit_button:
-                fun.edit_todo(sorted_todos, checkbox_values)
+                todo_manager.edit_todo(sorted_todos, checkbox_values)
 
 
 if __name__ == '__main__':
