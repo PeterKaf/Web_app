@@ -1,10 +1,4 @@
 # Task Manager Application
-
-## Table of Contents
-- [Introduction](##introduction)
-- [Preview](##Preview)
-- [Features](##features)
-- [Installation](##installation)
 ## Introduction
 
 Welcome to the Task Manager application! This application is designed to assist you in staying organized and on top of your work. With its intuitive interface, you can effortlessly manage your tasks by adding, editing, and marking them as complete. Whether you're a student, a professional, or simply someone who wants to stay organized, the Task Manager is here to help.
@@ -28,8 +22,16 @@ You can use application under folowing url:
 To use the Task Manager application, follow these steps:
 
 1. Clone the repository to your local machine using the following command:
-  git clone <repository-url>
+```
+git clone <repository-url>
+```
 2. Install libraries from requirements.txt file:
+```
+pip install -r requirements.txt
+```
 3. Run the app on localhost, using following command:
-4. Window should appear, but if it doesnt you can copy localhost url form console:
+```
+streamlit run Home.py
+```
+4. Window should appear, but if it doesnt you can copy localhost url form console.
   
