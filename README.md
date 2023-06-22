@@ -19,7 +19,9 @@ You can use application under folowing url: https://todo-app.streamlit.app/
 
 ## Installation
 
-To use the Task Manager application, follow these steps:
+You can use the application using url provided in Preview section.
+
+Alternatively, to use the Task Manager application locally, follow these steps:
 
 1. Clone the repository to your local machine using the following command:
 ```
