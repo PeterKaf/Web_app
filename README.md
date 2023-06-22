@@ -5,7 +5,7 @@ Welcome to the Task Manager application! This application is designed to assist 
 
 ## Preview
 
-You can use application under folowing url:
+You can use application under folowing url: https://todo-app.streamlit.app/
 
 ## Features
 
